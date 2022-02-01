@@ -7,7 +7,11 @@ const getMovies = async (req, res, next) => {
     if (params[1]) {
         let reg = { $regex: params[1], $options: 'i' }
         
-        await Movie.find({ $or: [{ title: reg }, { year: reg }, { description: reg }, { actors: reg }] }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+        await Movie.find({ $or: [{ title: reg }, { year: reg }, { description: reg }, { actors: reg }], $expr: {
+            $function: {
+                
+            }
+        }}).sort({ rating: 'desc' }).limit(10).skip(params[0])
             .then(response => {
                 res.json(response)
             })
