@@ -3,28 +3,31 @@ import { Card, CardBody, CardFooter, CardHeader, CardImg, CardSubtitle, CardText
 import { baseUri } from "../baseUri/baseUri";
 import axios from 'axios'
 
-const Movie = ({ movie, toggle, movies, setMovies }) => {
+const Movie = ({ movie, toggle, movies, setMovies, type, search }) => {
 
     const onRate = async (rating) => {
         let data = {
             rating: rating,
-            movies: movies.length
+            movies: movies.length,
+            type: type, 
+            search: search
         }
         await axios.put(`${baseUri}/rate/${movie._id}`, data)
             .then((res) => {
                 setMovies(res.data)
-                toggle()})
+                toggle()
+            })
             .catch(err => console.log(err))
     }
 
-    return <Card style={{ flex: "1 0 18%", margin: "5px", height: "370px", maxWidth: "19%", backgroundColor: "indianred" }}>
+    return <Card style={{ flex: "1 0 18%", margin: "5px", height: "400px", maxWidth: "19%", backgroundColor: "indianred" }}>
         <CardHeader>
             <CardTitle>{movie.title}</CardTitle>
             <CardSubtitle>{movie.year}</CardSubtitle>
         </CardHeader>
         <CardBody>
             <CardImg style={{ height: "170px" }} src={movie.img} alt="movie image" />
-            <CardText>
+            <CardText style={{ textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap" }}>
                 {movie.description}
             </CardText>
             <CardSubtitle>{movie.actors.map((actor, i) => {

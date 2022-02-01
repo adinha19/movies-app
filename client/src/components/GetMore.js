@@ -3,10 +3,10 @@ import { Button } from "reactstrap";
 import axios from 'axios'
 import { baseUri } from "../baseUri/baseUri";
 
-const GetMore = ({ search, movies, setMovies }) => {
+const GetMore = ({ type, search, movies, setMovies }) => {
 
     const getMore = async () => {
-        let params = [movies.length, search]
+        let params = [movies.length, search, type]
         await axios.get(`${baseUri}/${JSON.stringify(params)}`)
             .then(res => {
                 console.log(res.data)
@@ -15,7 +15,7 @@ const GetMore = ({ search, movies, setMovies }) => {
             .catch(err => console.log(err))
     }
 
-    return (<div style={{marginBottom: "5px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
+    return (<div style={{padding: "10px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
         <Button color="danger" onClick={getMore}>Load More Movies</Button>
     </div>)
 }
