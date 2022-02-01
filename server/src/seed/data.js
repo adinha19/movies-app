@@ -9,7 +9,7 @@ let data = [
         title: "nindza3", description: "nesto nesto", year: 1894, img: "http://localhost:5000/src/images/logo.jpg", actors: ["bera bereta", "nada topcagic"],
         rating: 4
     }, {
-        title: "nindza4", description: "nesto nesto", year: 1894, img: "http://localhost:5000/src/images/logo.jpg", actors: ["bera bereta", "nada topcagic"],
+        title: "nindza4", description: "nesto nesto", year: 1894, img: "http://localhost:5000/src/images/logo.jpg", actors: ["antonio banderas", "nada topcagic"],
         rating: 4
     }, {
         title: "nindza5", description: "nesto nesto", year: 1894, img: "http://localhost:5000/src/images/logo.jpg", actors: ["bera bereta", "nada topcagic"],

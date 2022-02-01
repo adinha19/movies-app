@@ -6,16 +6,52 @@ const getMovies = async (req, res, next) => {
 
     if (params[1]) {
         let reg = { $regex: params[1], $options: 'i' }
+
+        let matches = params[1].match(/(\d+)/) || ''
         
-        await Movie.find({ $or: [{ title: reg }, { year: reg }, { description: reg }, { actors: reg }], $expr: {
-            $function: {
-                
-            }
-        }}).sort({ rating: 'desc' }).limit(10).skip(params[0])
-            .then(response => {
-                res.json(response)
-            })
-            .catch(err => console.log(err))
+        if (params[1].toLowerCase() === `less than ${matches[0]} stars`) {
+            await Movie.find({ rating: { $lte: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else if (params[1].toLowerCase() === `${matches[0]} stars`) {
+            await Movie.find({ rating: { $eq: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else if (params[1].toLowerCase() === `more than ${matches[0]} stars`) {
+            await Movie.find({ rating: { $gte: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else if (params[1].toLowerCase() === `after year ${matches[0]}`) {
+            await Movie.find({ year: { $gt: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else if (params[1].toLowerCase() === `before year ${matches[0]}`) {
+            await Movie.find({ year: { $lt: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else if (params[1].toLowerCase() === `year ${matches[0]}`) {
+            await Movie.find({ year: { $eq: matches[0] } }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        } else {
+            await Movie.find({ $or: [{ title: reg }, { year: reg }, { description: reg }, { actors: reg }] }).sort({ rating: 'desc' }).limit(10).skip(params[0])
+                .then(response => {
+                    res.json(response)
+                })
+                .catch(err => console.log(err))
+        }
     } else {
         await Movie.find().sort({ rating: 'desc' }).limit(10).skip(params[0])
             .then(response => {
@@ -34,7 +70,7 @@ const rateMovie = async (req, res, next) => {
     } catch {
         console.log(err)
     }
-    movie.rating = (movie.rating + req.body.rating) / 2
+    movie.rating = (Number(movie.rating) + req.body.rating) / 2
     await movie.save()
     await Movie.find({}).sort({ rating: 'desc' }).limit(req.body.movies)
         .then(response => res.json(response))
