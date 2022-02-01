@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from 'reactstrap'
+import { Input, InputGroup, InputGroupText } from 'reactstrap'
 import logo from '../assets/logo.jpg'
 
 const Search = ({ onChange, search }) => {
@@ -8,9 +8,12 @@ const Search = ({ onChange, search }) => {
         <div style={{ width: "50%" }}>
             <img src={logo} alt="logo" style={{ height: "100px", width: "250px" }} />
         </div>
-        <div style={{ width: "40%" }}>
+        <InputGroup style={{ width: "40%" }}>
             <Input placeholder="Search for movies" value={search} onChange={(e) => onChange(e)}></Input>
-        </div>
+            <InputGroupText>
+                <i className="bi bi-search"></i>
+            </InputGroupText>
+        </InputGroup>
     </div>)
 }
 
