@@ -3,6 +3,7 @@ import { Input, InputGroup, InputGroupText } from 'reactstrap'
 import logo from '../assets/logo.jpg'
 
 const Search = ({ onChange, search }) => {
+    
 
     return (<div style={{ display: "flex", alignItems: "center", backgroundColor: "black" }}>
         <div style={{ width: "50%" }}>
