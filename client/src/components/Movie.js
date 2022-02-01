@@ -9,7 +9,7 @@ const Movie = ({ movie, toggle, movies, setMovies, type, search }) => {
         let data = {
             rating: rating,
             movies: movies.length,
-            type: type, 
+            type: type,
             search: search
         }
         await axios.put(`${baseUri}/rate/${movie._id}`, data)

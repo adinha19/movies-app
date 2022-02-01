@@ -6,7 +6,7 @@ import { baseUri } from "../baseUri/baseUri";
 const GetMore = ({ type, search, movies, setMovies }) => {
 
     const getMore = async () => {
-        
+
         let params = [movies.length, search, type]
 
         await axios.get(`${baseUri}/${JSON.stringify(params)}`)
@@ -16,7 +16,7 @@ const GetMore = ({ type, search, movies, setMovies }) => {
             .catch(err => console.log(err))
     }
 
-    return (<div style={{padding: "10px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
+    return (<div style={{ padding: "10px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
         <Button color="danger" onClick={getMore}>Load More Movies</Button>
     </div>)
 }

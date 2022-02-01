@@ -7,9 +7,9 @@ const MoviesShowsSwitch = ({ type, setType }) => {
         setType(e.target.name)
     }
 
-    return (<ButtonGroup style={{marginLeft: "25px", height: "40px"}} >
-        <Button style={{height: "40px"}} color={type === "Movie" ? "primary" : "secondary"} name="Movie" onClick={(e) => onClick(e)}>Movies</Button>
-        <Button style={{height: "40px"}} color={type === "TV Show" ? "primary" : "secondary"} name="TV Show" onClick={(e) => onClick(e)}>TV Shows</Button>
+    return (<ButtonGroup style={{ marginLeft: "25px", height: "40px" }} >
+        <Button style={{ height: "40px" }} color={type === "Movie" ? "primary" : "secondary"} name="Movie" onClick={(e) => onClick(e)}>Movies</Button>
+        <Button style={{ height: "40px" }} color={type === "TV Show" ? "primary" : "secondary"} name="TV Show" onClick={(e) => onClick(e)}>TV Shows</Button>
     </ButtonGroup>)
 }
 
