@@ -9,13 +9,13 @@ let data = [
         title: "Casablanca", description: "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.", year: 1942, img: "http://localhost:5000/src/images/casablanca.jpg", actors: ["Humphrey Bogart", "Ingrid Bergman"],
         rating: 4, type: "Movie"
     }, {
-        title: "Djano Unchained", description: "Cowboy fights with slaveowners.", year: 2010, img: "http://localhost:5000/src/images/django.jpg", actors: ["Jamie Fox", "Leonardo Dicaprio"],
+        title: "Djagno Unchained", description: "Cowboy fights with slaveowners.", year: 2010, img: "http://localhost:5000/src/images/django.jpg", actors: ["Jamie Fox", "Leonardo Dicaprio"],
         rating: 4, type: "Movie"
     }, {
         title: "Fight Club", description: "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.", year: 1999, img: "http://localhost:5000/src/images/fightc.jpg", actors: ["Brad Pitt", "Edward Norton"],
         rating: 3, type: "Movie"
     }, {
-        title: "Gladiator", description: "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.", year: 2000, img: "http://localhost:5000/src/images/godfather.jpg", actors: ["Russell Crowe", "Joaquin Phoenix"],
+        title: "Gladiator", description: "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.", year: 2000, img: "http://localhost:5000/src/images/gladiator.jpg", actors: ["Russell Crowe", "Joaquin Phoenix"],
         rating: 3, type: "Movie"
     }, {
         title: "Godfather", description: "Day to day life of mafia", year: 1972, img: "http://localhost:5000/src/images/godfather.jpg", actors: ["Al Pacino", "Marlon Brando"],

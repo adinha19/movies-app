@@ -1,23 +1,16 @@
 import React from "react";
 import { Button } from "reactstrap";
-import axios from 'axios'
-import { baseUri } from "../baseUri/baseUri";
+import { useDispatch, useSelector } from "react-redux";
+import { getMore } from "../actions/actions";
 
-const GetMore = ({ type, search, movies, setMovies }) => {
+const GetMore = ({ type, search }) => {
+    const dispatch = useDispatch()
+    const movies = useSelector(state => state.movies.movies)
 
-    const getMore = async () => {
-
-        let params = [movies.length, search, type]
-
-        await axios.get(`${baseUri}/${JSON.stringify(params)}`)
-            .then(res => {
-                setMovies([...movies, ...res.data])
-            })
-            .catch(err => console.log(err))
-    }
+    let data = [movies.length, search, type]
 
     return (<div style={{ padding: "10px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
-        <Button color="danger" onClick={getMore}>Load More Movies</Button>
+        <Button color="danger" onClick={() => dispatch(getMore(data))}>Load More Movies</Button>
     </div>)
 }
 export default GetMore

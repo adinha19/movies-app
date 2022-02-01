@@ -2,9 +2,12 @@ import React from "react";
 import { Card, CardBody, CardFooter, CardHeader, CardImg, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import { baseUri } from "../baseUri/baseUri";
 import axios from 'axios'
+import { rateMovie } from "../actions/actions";
+import { useDispatch, useSelector } from "react-redux";
+const Movie = ({ movie, toggle, type, search }) => {
 
-const Movie = ({ movie, toggle, movies, setMovies, type, search }) => {
-
+    const dispatch = useDispatch()
+    const movies = useSelector(state => state.movies.movies)
     const onRate = async (rating) => {
         let data = {
             rating: rating,
@@ -14,13 +17,13 @@ const Movie = ({ movie, toggle, movies, setMovies, type, search }) => {
         }
         await axios.put(`${baseUri}/rate/${movie._id}`, data)
             .then((res) => {
-                setMovies(res.data)
+                dispatch(rateMovie(res.data))
                 toggle()
             })
             .catch(err => console.log(err))
     }
 
-    return <Card style={{ flex: "1 0 18%", margin: "5px", height: "400px", maxWidth: "19%", backgroundColor: "indianred" }}>
+    return <Card style={{ flex: "1 0 23%", margin: "5px", maxWidth: "24%", height: "400px", backgroundColor: "indianred" }}>
         <CardHeader>
             <CardTitle>{movie.title}</CardTitle>
             <CardSubtitle>{movie.year}</CardSubtitle>
