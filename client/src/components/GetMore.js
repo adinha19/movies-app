@@ -6,10 +6,11 @@ import { baseUri } from "../baseUri/baseUri";
 const GetMore = ({ type, search, movies, setMovies }) => {
 
     const getMore = async () => {
+        
         let params = [movies.length, search, type]
+
         await axios.get(`${baseUri}/${JSON.stringify(params)}`)
             .then(res => {
-                console.log(res.data)
                 setMovies([...movies, ...res.data])
             })
             .catch(err => console.log(err))
