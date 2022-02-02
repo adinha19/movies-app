@@ -15,8 +15,10 @@ const Movies = ({ type, setSearch }) => {
         setTimeout(() => {
             setShowModal(false)
         }, 1500);
-    }
+
         //reset search when toggles, close modal after 1.5 sec
+    }
+
     return (<div className="container">
         <Row>
             {movies?.map((movie) => {

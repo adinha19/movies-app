@@ -14,12 +14,16 @@ const Movie = ({ movie, toggle, type }) => {
             rating: rating,
             type: type,
         }
+
         //send type show/movie and rating, type so controller can return full array of current type
+
         await axios.put(`${baseUri}/rate/${movie._id}`, data)
             .then(res => {
                 toggle()
                 dispatch(rateMovie(res.data))
+
                 //we want to get new sorted array of movies/shows, and we want it to trigger after getMovies action triggers (it triggers in toggle()!)
+           
             })
             .catch(err => console.log(err))
     }
