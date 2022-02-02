@@ -8,7 +8,7 @@ const GetMore = ({ type, search }) => {
     const movies = useSelector(state => state.movies.movies)
 
     let data = [movies.length, search, type]
-
+    //send all params same as the last trigger getMovies or getMore action had. 
     return (<div style={{ padding: "10px", width: "100%" }}>
         <Button color="danger" onClick={() => dispatch(getMore(data))}>Load More</Button>
     </div>)

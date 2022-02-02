@@ -1,24 +1,25 @@
 import React from "react";
-import { Card, CardBody, CardFooter, CardHeader, CardImg, CardSubtitle, CardText, CardTitle, Col } from "reactstrap";
+import { Card, CardBody, CardFooter, CardHeader, CardImg, CardSubtitle, CardText, CardTitle } from "reactstrap";
 import { baseUri } from "../baseUri/baseUri";
 import axios from 'axios'
 import { rateMovie } from "../actions/actions";
-import { useDispatch, useSelector } from "react-redux";
-const Movie = ({ movie, toggle, type, search }) => {
+import { useDispatch } from "react-redux";
+
+const Movie = ({ movie, toggle, type }) => {
 
     const dispatch = useDispatch()
-    const movies = useSelector(state => state.movies.movies)
+
     const onRate = async (rating) => {
         let data = {
             rating: rating,
-            movies: movies.length,
             type: type,
-            search: search
         }
+        //send type show/movie and rating, type so controller can return full array of current type
         await axios.put(`${baseUri}/rate/${movie._id}`, data)
-            .then((res) => {
-                dispatch(rateMovie(res.data))
+            .then(res => {
                 toggle()
+                dispatch(rateMovie(res.data))
+                //we want to get new sorted array of movies/shows, and we want it to trigger after getMovies action triggers (it triggers in toggle()!)
             })
             .catch(err => console.log(err))
     }

@@ -7,8 +7,10 @@ import { getMovies } from '../actions/actions';
 import { useDispatch, useSelector } from 'react-redux'
 
 const Home = () => {
+
     const [search, setSearch] = useState('')
     const [type, setType] = useState('Movie')
+
     const movies = useSelector(state => state.movies.movies)
     const dispatch = useDispatch()
 
@@ -17,18 +19,15 @@ const Home = () => {
     }
 
     useEffect(() => {
-        if (search.length >= 2) {
-            dispatch(getMovies(search, type))
-        } else if (search.length === 0) {
-            dispatch(getMovies(search, type))
-        }
+        dispatch(getMovies(search, type))
+        //trigger when search or type changes
     }, [search, type])
 
     return (<div style={{ backgroundColor: "black" }}>
         <Search search={search} onChange={onChange} />
-        <div style={{ display: "block", width: "100%", textAlign: "center", minHeight: "89vh", height: "100%", width: "100%" }}>
+        <div style={{ display: "block", width: "100%", textAlign: "center", minHeight: "89vh", height: "100%" }}>
             <MoviesShowsSwitch type={type} setType={setType} />
-            <Movies search={search} type={type} />
+            <Movies type={type} setSearch={setSearch} />
             {movies?.length > 9 && <GetMore type={type} search={search} />}
         </div>
     </div>)

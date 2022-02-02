@@ -9,14 +9,6 @@ Users can also search by:
 - before year /year/
 - year /year/  
 I know this is not the best way to implement this kind of search by common terms, but this was the first time i encountered a problem like this.  
-  
-.env file in server folder content:  
-MONGO_USER=Paragon004  
-MONGO_PASS=!400nogaraP$  
-MONGO_CLUSTER=cluster0.rgbkn.mongodb.net  
-PROJECT_NUMBER=mistral-movies  
-PORT=5000  
-JWT_SECRET=secret  
 
 ## Application's main features: 
 - Easy to use

@@ -1,5 +1,4 @@
 import {
-    GET_AFTER_RATE,
     GET_MORE,
     GET_MOVIES
 } from '../actions/types'
