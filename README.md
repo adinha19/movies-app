@@ -8,7 +8,7 @@ Users can also search by:
 - after year /year/
 - before year /year/
 - year /year/  
-I know this is not the best way to implement this kind of search by common terms, but this was the first time i encountered a problem like this.  
+I know this is not the best way to implement this kind of search by common terms, but this was the first time I encountered a problem like this.  
 
 ## Application's main features: 
 - Easy to use
