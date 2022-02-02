@@ -3,7 +3,7 @@ const Movie = require('../models/Movie')
 const getMovies = async (req, res, next) => {
 
     let params = JSON.parse(req.params.data)
-console.log(params)
+
     if (params[1]) {
         let reg = { $regex: params[1], $options: 'i' }
 
@@ -50,14 +50,14 @@ console.log(params)
                 .then(response => {
                     res.json(response)
                 })
-                .catch(err => console.log(err))
+                .catch(() => res.status(404).json("Unexpected problem, please try again later"))
         }
     } else {
         await Movie.find({ type: params[2] }).sort({ rating: 'desc' }).limit(10).skip(params[0])
             .then(response => {
                 res.json(response)
             })
-            .catch(err => console.log(err))
+            .catch((err) => console.log(err))
     }
 }
 
@@ -68,7 +68,7 @@ const rateMovie = async (req, res, next) => {
     try {
         movie = await Movie.findById(id)
     } catch {
-        console.log(err)
+        res.status(404).json("Unexpected problem, please try again later")
     }
     movie.rating = (Number(movie.rating) + req.body.rating) / 2
     await movie.save()
