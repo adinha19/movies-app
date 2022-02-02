@@ -51,7 +51,7 @@ Built with:
 ## How to clone, install and start
 To get a local copy up and running follow these simple example steps:
 1. Clone the repo
-- git clone https://github.com/flamboyant11/library
+- git clone https://github.com/flamboyant11/mistral-movies
 2. Start the project
 - open terminal
 - cd client
@@ -59,6 +59,6 @@ To get a local copy up and running follow these simple example steps:
 - cd server
 - npm install
 - npm start (from folder server!)
-3. If you want to seed your database
+3. If you want to seed the database
 - cd server
 - npm run seed
