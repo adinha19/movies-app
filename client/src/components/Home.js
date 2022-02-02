@@ -4,12 +4,12 @@ import Search from './Search'
 import GetMore from './GetMore';
 import MoviesShowsSwitch from './MoviesShowsSwitch';
 import { getMovies } from '../actions/actions';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Home = () => {
     const [search, setSearch] = useState('')
     const [type, setType] = useState('Movie')
-
+    const movies = useSelector(state => state.movies.movies)
     const dispatch = useDispatch()
 
     const onChange = (e) => {
@@ -26,10 +26,10 @@ const Home = () => {
 
     return (<div style={{ backgroundColor: "black" }}>
         <Search search={search} onChange={onChange} />
-        <div style={{ textAlign: "center", minHeight: "89vh", height: "100%", width: "100%" }}>
+        <div style={{ display: "block", width: "100%", textAlign: "center", minHeight: "89vh", height: "100%", width: "100%" }}>
             <MoviesShowsSwitch type={type} setType={setType} />
             <Movies search={search} type={type} />
-            <GetMore type={type} search={search} />
+            {movies?.length > 9 && <GetMore type={type} search={search} />}
         </div>
     </div>)
 }

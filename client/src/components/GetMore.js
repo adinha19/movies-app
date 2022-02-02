@@ -9,8 +9,8 @@ const GetMore = ({ type, search }) => {
 
     let data = [movies.length, search, type]
 
-    return (<div style={{ padding: "10px", width: "100%", alignSelf: "center", justifySelf: "center" }}>
-        <Button color="danger" onClick={() => dispatch(getMore(data))}>Load More Movies</Button>
+    return (<div style={{ padding: "10px", width: "100%" }}>
+        <Button color="danger" onClick={() => dispatch(getMore(data))}>Load More</Button>
     </div>)
 }
 export default GetMore

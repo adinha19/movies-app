@@ -25,6 +25,7 @@ export const rateMovie = (data) => dispatch => {
 }
 
 export const getMore = (data) => async dispatch => {
+    console.log(data)
     await axios.get(`${baseUri}/${JSON.stringify(data)}`)
     .then(res => {
         dispatch({

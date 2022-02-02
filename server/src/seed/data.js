@@ -9,7 +9,7 @@ let data = [
         title: "Casablanca", description: "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.", year: 1942, img: "http://localhost:5000/src/images/casablanca.jpg", actors: ["Humphrey Bogart", "Ingrid Bergman"],
         rating: 4, type: "Movie"
     }, {
-        title: "Djagno Unchained", description: "Cowboy fights with slaveowners.", year: 2010, img: "http://localhost:5000/src/images/django.jpg", actors: ["Jamie Fox", "Leonardo Dicaprio"],
+        title: "Django Unchained", description: "Cowboy fights with slaveowners.", year: 2010, img: "http://localhost:5000/src/images/django.jpg", actors: ["Jamie Fox", "Leonardo Dicaprio"],
         rating: 4, type: "Movie"
     }, {
         title: "Fight Club", description: "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.", year: 1999, img: "http://localhost:5000/src/images/fightc.jpg", actors: ["Brad Pitt", "Edward Norton"],
@@ -84,11 +84,11 @@ let data = [
         title: "Band of Brothers", description: "Easy Company of the U.S. Army 101st Airborne Division and their mission in World War II Europe", year: 2001, img: "http://localhost:5000/src/images/band.jpg", actors: ["Scott Grimes", "Damian Lewis"],
         rating: 3, type: "TV Show"
     }, {
+        title: "True Detective", description: "police investigations unearth the personal and professional secrets of those involved", year: 2014, img: "http://localhost:5000/src/images/trued.jpg", actors: ["Vince Vaughn", "Colin Farrell"],
+        rating: 4, type: "TV Show"
+    }, {
         title: "Firefly", description: "Five hundred years in the future, a renegade crew aboard a small spacecraft", year: 2002, img: "http://localhost:5000/src/images/firefly.jpg", actors: ["Nathan Fillion", "Gina Torres"],
         rating: 5, type: "TV Show"
-    }, {
-        title: "True Detective", description: "police investigations unearth the personal and professional secrets of those involved", year: 2014, img: "http://localhost:5000/src/images/trued.jpg", actors: ["Vince Vaughn", "Colin Farrell"],
-        rating: 2, type: "TV Show"
     }, {
         title: "The Office", description: "A mockumentary on a group of typical office workers", year: 2005, img: "http://localhost:5000/src/images/office.jpg", actors: ["Steve Carell", "Jenna Fischer"],
         rating: 1, type: "TV Show"

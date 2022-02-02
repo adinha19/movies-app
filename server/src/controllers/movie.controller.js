@@ -3,7 +3,7 @@ const Movie = require('../models/Movie')
 const getMovies = async (req, res, next) => {
 
     let params = JSON.parse(req.params.data)
-
+console.log(params)
     if (params[1]) {
         let reg = { $regex: params[1], $options: 'i' }
 

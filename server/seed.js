@@ -9,6 +9,5 @@ mongoose
     )
     .then(() => {
         seed.seedMovies()
-        console.log('database seeded')
     })
     .catch(err => console.log(err));
